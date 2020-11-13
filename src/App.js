@@ -1,12 +1,16 @@
 import React from 'react';
-import { Button } from './components/Button';
-import './App.css';
+import { SideBar, Content } from "./components/index";
+
+import styles from './App.module.css';
 
 function App() {
+  const [currentValue, setCurrentValue] = React.useState()
+  const [newValue, setNewValue] = React.useState()
+
   return (
-    <div>
-      <Button btnName='Cancel' />
-      <Button btnName='Submit' />
+    <div className={styles.app}>
+      <SideBar currentValue={currentValue} setCurrentValue={setCurrentValue} />
+      <Content />
     </div>
   )
 }
