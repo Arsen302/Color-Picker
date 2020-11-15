@@ -1,36 +1,18 @@
 import React from 'react';
 import { Button } from './Button';
+import { Slider } from './Slider';
 
 import styles from '../App.module.css'
 
-const SideBar = ({ currentValue, setCurrentValue }) => {
-    const handleChange = (event) => {
-        const value = event.target.value
-        setCurrentValue(value)
-        console.log(value)
-        for (let i = 0; i < 4; i++) {
+const SideBar = ({ currentValue, handleChange, handleSubmit }) => {
 
-        }
-    }
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log('submit')
-    }
-    const handleCancel = (event) => {
-        if (event) {
-
-        }
-    }
-
-    const rangeData = [
-        ['Red'],
-        ['Green'],
-        ['Blue']
+    const rangesData = [
+        { id: 1, name: 'red', value: currentValue.red },
+        { id: 2, name: 'green', value: currentValue.green },
+        { id: 3, name: 'blue', value: currentValue.blue }
     ]
 
-    const rangesItems = rangeData.map((range) =>
-        <><span>100 {range}</span>
-            <input type='range' min='0' max='255' step='1' onChange={handleChange} /></>)
+    const rangesItems = rangesData.map((range) => <Slider key={range.id} range={range} handleChange={handleChange} />)
 
     return (
         <form onSubmit={handleSubmit}>
