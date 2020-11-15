@@ -9,10 +9,11 @@ function App() {
     green: 188,
     blue: 243
   })
-  const [newValue, setNewValue] = React.useState()
+  const [submitedColor, setSubmittedColor] = React.useState()
+  const [cancelColor, setCancelColor] = React.useState()
 
   const handleChange = (event) => {
-    let newColor = {
+    const newColor = {
       ...currentValue,
       [event.target.name]: Number(event.target.value)
     }
@@ -21,17 +22,26 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('submit')
+    let submit = event.target.value
+    console.log(submit)
   }
 
   const handleCancel = (event) => {
+    event.preventDefault()
+    let cancel = {
+      ...currentValue,
+
+    }
+    console.log(cancel)
   }
 
   return (
     <div className={styles.app}>
-      <SideBar currentValue={currentValue} setCurrentValue={setCurrentValue} handleSubmit={handleSubmit} handleChange={handleChange} />
-      <Content currentValue={currentValue} />
-    </div >
+      <div className={styles.wrapper}>
+        <SideBar currentValue={currentValue} setCurrentValue={setCurrentValue} handleSubmit={handleSubmit} handleCancel={handleCancel} handleChange={handleChange} />
+        <Content currentValue={currentValue} />
+      </div>
+    </div>
   )
 }
 

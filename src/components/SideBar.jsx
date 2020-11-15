@@ -4,7 +4,7 @@ import { Slider } from './Slider';
 
 import styles from '../App.module.css'
 
-const SideBar = ({ currentValue, handleChange, handleSubmit }) => {
+const SideBar = ({ currentValue, handleChange, handleSubmit, handleCancel }) => {
 
     const rangesData = [
         { id: 1, name: 'red', value: currentValue.red },
@@ -21,8 +21,8 @@ const SideBar = ({ currentValue, handleChange, handleSubmit }) => {
                     {rangesItems}
                 </div >
                 <div className={styles.buttons}>
-                    <Button btnName='Cancel' />
-                    <Button btnName='Submit' />
+                    <Button btnName='Submit' onSubmit={handleSubmit} />
+                    <Button btnName='Cancel' onCancel={handleCancel} />
                 </div>
             </div>
         </form>
