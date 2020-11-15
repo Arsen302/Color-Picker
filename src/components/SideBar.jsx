@@ -8,14 +8,17 @@ const SideBar = ({ currentValue, setCurrentValue }) => {
         const value = event.target.value
         setCurrentValue(value)
         console.log(value)
+        for (let i = 0; i < 4; i++) {
+
+        }
     }
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('submit')
     }
     const handleCancel = (event) => {
-        if(event) {
-            
+        if (event) {
+
         }
     }
 
